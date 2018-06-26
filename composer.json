@@ -1,0 +1,29 @@
+{
+    "name": "phalapi/weekday",
+    "description": "PhalApi 2.x 扩展库 - 用于判断当天是否是工作日。",
+    "keywords": [
+        "phalapi",
+        "weekday",
+        "phalapi-weekday"
+    ],
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://www.phalapi.net/",
+    "type": "library",
+    "authors": [
+        {
+            "name": "张连友",
+            "email": "ofzt@qq.com",
+            "homepage": "https://github.com/nil-2008",
+            "role": "Developer"
+        }
+    ],
+    "require":{
+        "php": ">=5.3.3",
+        "phalapi/kernal": "^2.2"
+    },
+    "autoload":{
+        "psr-4":{
+            "PhalApi\\Weekday\\": "src/"
+        }
+    }
+}
