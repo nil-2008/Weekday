@@ -21,30 +21,8 @@
 ```
 {
     "require": {
-        "phalapi/weekday": "dev-master"
+        "nil-2008/phalapi-weekday": "dev-master"
      }
-}
-```
-
-```
- * 请在下面放置任何您需要的应用配置
- */
-
-return array(
-
-    'on_holidays_list' => array(
-        //中秋
-        mktime(0, 0, 0, 9, 24, 2018),
-        //国庆
-        mktime(0, 0, 0, 10, 1, 2018),
-        mktime(0, 0, 0, 10, 2, 2018),
-        mktime(0, 0, 0, 10, 3, 2018),
-        mktime(0, 0, 0, 10, 4, 2018),
-        mktime(0, 0, 0, 10, 5, 2018),
-    ),
-
-);"
-    }
 }
 ```
 
@@ -81,25 +59,14 @@ return array(
 ```
 
 // 惰性加载Weekday
-\PhalApi\DI()->weekday = function () {
+$di->weekday = function () {
     return new \PhalApi\Weekday\Lite(\PhalApi\DI()->config->get("app.on_holidays_list"));
-}c
+}
 
 ```
-
-use PhalApi\Config\FileConfig;
-$di         = \PhalApi\DI();
-$di->config = new FileConfig('./config');
-
-$config = $di->config->get("app.on_holidays_list");
-
-$tt = new \PhalApi\Weekday\Lite($config);
-echo $tt->isWeekday();
-echo "\n";
-
 
 常用基础操作(具体API可以查阅代码中src/Lite.php)
 
 ```
-\PhalApi\DI()->weekday->isWeekday();
+echo  \PhalApi\DI()->weekday->isWeekday();
 ```
