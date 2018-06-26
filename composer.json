@@ -1,5 +1,5 @@
 {
-    "name": "phalapi/weekday",
+    "name": "nil-2008/phalapi-weekday",
     "description": "PhalApi 2.x 扩展库 - 用于判断当天是否是工作日。",
     "keywords": [
         "phalapi",
