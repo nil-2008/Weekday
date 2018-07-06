@@ -11,7 +11,8 @@ define("HOLIDAY", 1); //节假日
 define("WEEKEND", 2); //周末
 define("OFF_HOUR", 3); //上班时间之外
 
-class Lite {
+class Lite
+{
     private $list;
 
     /**
@@ -19,7 +20,8 @@ class Lite {
      *
      * @param $config array 配置文件
      */
-    public function __construct($config = null) {
+    public function __construct($config = null)
+    {
         $this->list = $config;
     }
 
@@ -27,7 +29,8 @@ class Lite {
      * 是否是工作日
      * @return boolean code 0:否 1：是
      */
-    public function isWeekday() {
+    public function isWeekday()
+    {
         $isWeekday = $this->isWeekend();
 
         if ($isWeekday == WEEKEND) {
@@ -49,7 +52,8 @@ class Lite {
      * 是否是工作之外的时间 8:30~ 17：30
      * @return boolean code 0:否 2：是
      */
-    public function isOffhour() {
+    public function isOffhour()
+    {
         return (date("His") < 83000 && date("His") > 173000) ? OFF_HOUR : SUCCESS;
     }
 
@@ -57,7 +61,8 @@ class Lite {
      * 是否是周末
      * @return boolean code 0:否 2：是
      */
-    protected function isWeekend() {
+    public function isWeekend()
+    {
         $w = date('w');
         return ($w == 0 || $w == 6) ? WEEKEND : SUCCESS;
     }
@@ -66,7 +71,8 @@ class Lite {
      * 是否是节假日
      * @return boolean code 0:否 1：是
      */
-    protected function isHoliday() {
+    public function isHoliday()
+    {
         return in_array(strtotime(date("Y-m-d")), $this->list) ? HOLIDAY : SUCCESS;
     }
 }
